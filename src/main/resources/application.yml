@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: hotels
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/warehouse}
+    username: ${DB_USERNAME:admin}
+    password: ${DB_PASSWORD:localpass}
+  flyway:
+    default-schema: entities
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
