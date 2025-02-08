@@ -51,8 +51,8 @@ dependencyManagement {
 
 sonar {
 	properties {
-		property "sonar.projectKey", "bookig"
-		property "sonar.projectName", "bookig"
+		property "sonar.projectKey", "${project.name}"
+		property "sonar.projectName", "${project.name}"
 	}
 }
 
