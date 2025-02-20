@@ -26,6 +26,6 @@ public class HotelController {
 
     @PostMapping
     public List<Hotel> getFreeHotelsController(@RequestBody HotelsRequest request) {
-        return hotelService.getFreeHotelsService(request.getCheckIn(), request.getCheckOut());
+        return hotelService.getHotels(request.getCheckIn(), request.getCheckOut());
     }
 }

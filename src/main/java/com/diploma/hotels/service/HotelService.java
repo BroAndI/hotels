@@ -5,6 +5,7 @@ import com.diploma.hotels.models.Hotel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -16,7 +17,7 @@ public class HotelService {
         return hotelsDao.getHotels();
     }
 
-    public List<Hotel> getHotels(String checkIn, String checkOut) {
+    public List<Hotel> getHotels(LocalDate checkIn, LocalDate checkOut) {
         return hotelsDao.getFreeHotels(checkIn, checkOut);
     }
 }
