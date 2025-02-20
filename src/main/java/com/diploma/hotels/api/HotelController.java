@@ -1,13 +1,18 @@
 package com.diploma.hotels.api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.diploma.hotels.dto.HotelsRequest;
+import com.diploma.hotels.models.Hotel;
+import com.diploma.hotels.service.HotelService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/hotels")
 public class HotelController {
+    private final HotelService hotelService;
 
     @GetMapping
     public String getHotels() {
@@ -17,5 +22,10 @@ public class HotelController {
     @GetMapping("/{id}")
     public String getHotel(@PathVariable Integer id) {
         return "Hotel %d detail...".formatted(id);
+    }
+
+    @PostMapping
+    public List<Hotel> getFreeHotelsController(@RequestBody HotelsRequest request) {
+        return hotelService.getFreeHotelsService(request.getCheckIn(), request.getCheckOut());
     }
 }
