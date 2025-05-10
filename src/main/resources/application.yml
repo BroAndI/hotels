@@ -2,11 +2,11 @@ spring:
   application:
     name: hotels
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/warehouse}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/hotels}
     username: ${DB_USERNAME:admin}
-    password: ${DB_PASSWORD:localpass}
+    password: ${DB_PASSWORD:admin}
   flyway:
-    default-schema: entities
+    default-schema: public
   jpa:
     hibernate:
       ddl-auto: validate
