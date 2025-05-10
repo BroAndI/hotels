@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS hotels (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  address VARCHAR(255),
+  city VARCHAR(100),
+  country VARCHAR(100),
+  rating DECIMAL(2, 1),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
