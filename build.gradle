@@ -6,6 +6,7 @@ plugins {
 
 group = 'com.diploma'
 version = '1.0.0'
+def mapstructVersion = "1.6.3"
 
 java {
 	toolchain {
@@ -26,7 +27,9 @@ dependencies {
 	runtimeOnly("org.flywaydb:flyway-database-postgresql:11.8.1")
 
 	compileOnly 'org.projectlombok:lombok'
-
+	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+	annotationProcessor "org.projectlombok:lombok-mapstruct-binding:0.2.0"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 
