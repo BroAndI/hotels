@@ -5,5 +5,5 @@ public record HotelListView(
     String name,
     String description,
     String country,
-    String coty
+    String city
 ) {}
