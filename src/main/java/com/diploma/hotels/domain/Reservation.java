@@ -22,7 +22,4 @@ public class Reservation {
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private LocalDateTime createdAt;
-    @ManyToOne
-    @JoinColumn(name = "room_id")
-    private Room room;
 }

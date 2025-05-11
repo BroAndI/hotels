@@ -2,10 +2,14 @@ package com.diploma.hotels.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+
+import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Getter
@@ -23,9 +27,7 @@ public class Room {
     private BigDecimal price;
     private Integer maxGuests;
     private LocalDateTime createdAt;
-    @ManyToOne
-    @JoinColumn(name = "hotel_id")
-    private Hotel hotel;
-    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "room_id")
+    @OneToMany(cascade = {MERGE, PERSIST, DETACH}, orphanRemoval = true)
     private List<Reservation> reservations;
 }

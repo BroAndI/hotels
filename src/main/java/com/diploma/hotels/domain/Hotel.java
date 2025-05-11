@@ -2,9 +2,13 @@ package com.diploma.hotels.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
+import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Getter
@@ -22,6 +26,7 @@ public class Hotel {
     @Embedded
     private Address address;
     private LocalDateTime createdAt;
-    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "hotel_id")
+    @OneToMany(cascade = {MERGE, PERSIST, DETACH}, orphanRemoval = true)
     private List<Room> rooms;
 }
